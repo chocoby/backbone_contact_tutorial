@@ -5,7 +5,7 @@ require([
   'routers/pc'
 ], function($, ContactList, AppView, Router) {
   var router = new Router();
-  var contactlist new ContactList();
+  var contactlist = new ContactList();
   contactlist.fetch();
 
   var appview = new AppView({
