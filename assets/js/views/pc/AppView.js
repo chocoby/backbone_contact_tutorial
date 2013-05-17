@@ -1,7 +1,8 @@
 define([
   'underscore',
-  'backbone'
-], function (_, Backbone) {
+  'backbone',
+  'jst/pc'
+], function (_, Backbone, JST) {
   var AppView = Backbone.view.extend({
     mainview: null, // 現在表示されている view
     initialize: function () {
@@ -14,6 +15,12 @@ define([
       if (this.mainview) this.mainview.remove();
 
       // router のイベントに応じて mainview を切り替える
+    },
+    render: function() {
+      this.$el.html(JST['pc/app']);
+      var listview = new ListView({collection: this.collection});
+      this.$('#contactlist').html(listview.render().el);
+      return this;
     }
   });
 
