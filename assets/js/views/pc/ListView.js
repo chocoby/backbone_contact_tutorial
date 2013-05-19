@@ -3,7 +3,7 @@ define([
   'jst/pc',
   './ItemView'
 ], function (Backbone, JST, ItemView) {
-  var ListView = Backbone.view.extend({
+  return Backbone.View.extend({
     initialize: function() {
       // collection に add されたら append する
       this.listenTo(this.collection, 'add', this.append);
@@ -18,7 +18,7 @@ define([
     },
     append: function(model) {
       var index = this.collection.indexOf(model);
-      var itemview = (new ItemView({model, model})).render();
+      var itemview = (new ItemView({model: model})).render();
 
       if (index) {
         // model の collection 内での位置と同じ位置に挿入する

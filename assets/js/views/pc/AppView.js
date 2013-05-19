@@ -1,15 +1,16 @@
 define([
   'underscore',
   'backbone',
-  'jst/pc'
-], function (_, Backbone, JST) {
-  var AppView = Backbone.view.extend({
+  './ListView',
+  'jst/pc',
+], function(_, Backbone, ListView, JST) {
+  var AppView = Backbone.View.extend({
     mainview: null, // 現在表示されている view
-    initialize: function () {
+    initialize: function() {
       // router オプションで Router インスタンスを渡すことにする
       this.listenTo(this.options.router, 'route', this.dispatch);
     },
-    dispatch: function (name, args) {
+    dispatch: function(name, args) {
       if (!_.include(['index', 'new', 'show', 'edit'], name)) return;
       // mainview があったら先に削除する
       if (this.mainview) this.mainview.remove();

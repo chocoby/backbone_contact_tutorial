@@ -1,4 +1,4 @@
-require({
+var require = {
   baseUrl: '/assets/js',
   paths: {
     'jquery': 'vendor/jquery-1.8.3',
@@ -16,4 +16,4 @@ require({
       deps: ['jquery', 'underscore']
     }
   }
-});
+};

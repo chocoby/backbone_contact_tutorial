@@ -2,7 +2,7 @@ define([
   'backbone',
   'jst/pc'
 ], function (Backbone, JST) {
-  var ItemView = Backbone.view.extend({
+  return Backbone.View.extend({
     initialize: function() {
       // model が change したら再度 render する
       this.listenTo(this.model, 'change', this.render);

@@ -8,10 +8,12 @@ define([
       return this.get('name').toUpperCase();
     },
     toEscapedJSON: function() {
-      // HTML エスケープされた属性オブジェクトを返す
-      return _.object(this.map(function (value, attr) {
-        return [attr, _.escape(value)];
-      }));
+      var data = this.toJSON();
+      _.each(data, function(value, name) {
+        data[name] = _.escape(value);
+      });
+
+      return data;
     }
   });
 
